@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>内部网关协议OSPF | Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="OSPF协议的基本特点 这个协议的名字是开放最短路径优先 OSPF (Open Shortest Path First)。 它是为了克服 RIP 的缺点在 1989 年开发出来的。“开放”表明 OSPF 协议不是受某一家厂商控制,而是公开发表的.使用了 Dijkstra 提出的最短路径算法 SPF。OSPF 只是一个协">
+<meta name="keywords" content="网络原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内部网关协议OSPF">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/内部网关协议/index.html">
+<meta property="og:site_name" content="Welcome">
+<meta property="og:description" content="OSPF协议的基本特点 这个协议的名字是开放最短路径优先 OSPF (Open Shortest Path First)。 它是为了克服 RIP 的缺点在 1989 年开发出来的。“开放”表明 OSPF 协议不是受某一家厂商控制,而是公开发表的.使用了 Dijkstra 提出的最短路径算法 SPF。OSPF 只是一个协议名字,并不表示其他的路由选择协议不是”最短路径优先”。事实上，所有的自制系统内">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512056673942&di=2e82d072b3de3d437c9fe526e2a4ed5b&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D1515081902%2C3505629819%26fm%3D214%26gp%3D0.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512056356662&di=1672a8b3fae8938e60c64b8031bc4878&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2960573112%2C1006679905%26fm%3D214%26gp%3D0.jpg">
+<meta property="og:updated_time" content="2017-11-30T12:57:05.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内部网关协议OSPF">
+<meta name="twitter:description" content="OSPF协议的基本特点 这个协议的名字是开放最短路径优先 OSPF (Open Shortest Path First)。 它是为了克服 RIP 的缺点在 1989 年开发出来的。“开放”表明 OSPF 协议不是受某一家厂商控制,而是公开发表的.使用了 Dijkstra 提出的最短路径算法 SPF。OSPF 只是一个协议名字,并不表示其他的路由选择协议不是”最短路径优先”。事实上，所有的自制系统内">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512056673942&di=2e82d072b3de3d437c9fe526e2a4ed5b&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D1515081902%2C3505629819%26fm%3D214%26gp%3D0.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Welcome" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Welcome</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-内部网关协议" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/30/内部网关协议/" class="article-date">
+  <time datetime="2017-11-30T11:30:06.000Z" itemprop="datePublished">2017-11-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      内部网关协议OSPF
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="OSPF协议的基本特点"><a href="#OSPF协议的基本特点" class="headerlink" title="OSPF协议的基本特点"></a>OSPF协议的基本特点</h3><hr>
+<p>这个协议的名字是<strong>开放最短路径优先 OSPF (Open Shortest Path First)</strong>。 它是为了克服 RIP 的缺点在 1989 年开发出来的。<br>“开放”表明 OSPF 协议不是受某一家厂商控制,而是公开发表的.使用了 Dijkstra 提出的<strong>最短路径算法 SPF</strong>。<br>OSPF 只是一个协议名字,并不表示其他的路由选择协议不是”最短路径优先”。事实上，所有的自制系统内部使用的路由协议（包括RIP协议）都是要寻找一条最短路径。  </p>
+<p>OSPF 最主要的特征就是使用分布式的<strong>链路状态协议</strong>，而不是像 RIP 的距离向量协议，OSPF的三个要点和 RIP 都不一样：  </p>
+<ol>
+<li>向本自制系统中<strong>所有路由器</strong>发送信息。这里使用的是<strong>泛洪法（flooding）</strong>。  </li>
+<li>发送的信息就是与本路由器<strong>相邻的所有路由器的链路状态</strong>，但这只是路由器所知道的<strong>部分信息</strong>。  </li>
+<li>只有当路由信息发生变化时才向所有路由器用泛洪法发送信息。  </li>
+</ol>
+<p>OSPF 的<strong>更新过程收敛得很快</strong>尤其重点。</p>
+<p>为了使 OSPF 能用于规模很大的网络，OSPF将一个自治区再划分为如干戈更小的范围，叫<strong>区域</strong>。<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1512056673942&amp;di=2e82d072b3de3d437c9fe526e2a4ed5b&amp;imgtype=jpg&amp;src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D1515081902%2C3505629819%26fm%3D214%26gp%3D0.jpg" alt=""><br>主干区域的标志符规定为 0.0.0.0，是用来连接其他在下层的区域。从其他区域来的信息都由<strong>区域边界路由器</strong>进行概括。主干区域的路由器叫<strong>主干路由器</strong>。</p>
+<p>OSPF 不使用 UDP 而**直接用 IP 数据报传送。</p>
+<h3 id="OSPF的五种分组类型"><a href="#OSPF的五种分组类型" class="headerlink" title="OSPF的五种分组类型"></a>OSPF的五种分组类型</h3><hr>
+<ol>
+<li><strong>问候</strong>分组;</li>
+<li><strong>数据库描述</strong>分组;</li>
+<li><strong>链路状态请求</strong>分组;</li>
+<li><strong>链路状态更新</strong>分组;</li>
+<li><strong>链路状态确认</strong>分组;</li>
+</ol>
+<p>OSPF 规定，每两个相邻路由器每隔十秒要交换一次问候分组。这样就可以确认哪些路由器是可达的。  </p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1512056356662&amp;di=1672a8b3fae8938e60c64b8031bc4878&amp;imgtype=jpg&amp;src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2960573112%2C1006679905%26fm%3D214%26gp%3D0.jpg" alt="">  </p>
+<p>泛洪法（如上图）<strong>转发</strong>收到的分组时，要将其上游路由器除外，泛洪法在收到更新分组后要发送确认（收到重复的更新分组只需确认一次）。图中绿色箭头表示确认分组。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/30/内部网关协议/" data-id="cjamhjb8a0005rgwqpr8vrchi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络原理/">网络原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/29/装载问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">装载问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络原理/">网络原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/30/内部网关协议/">内部网关协议OSPF</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/29/装载问题/">装载问题</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/29/重建二叉树/">重建二叉树</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/27/从尾到头打印链表/">从尾到头打印链表</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/26/替换空格/">替换空格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
