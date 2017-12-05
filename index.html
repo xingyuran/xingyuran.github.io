@@ -62,6 +62,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-斐波那契数列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/04/斐波那契数列/" class="article-date">
+  <time datetime="2017-12-04T12:17:39.000Z" itemprop="datePublished">2017-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/04/斐波那契数列/">斐波那契数列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><hr>
+<p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。n&lt;=39  </p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
+<ol>
+<li>递归，复杂度 O(2<sup>n</sup>)</li>
+<li>迭代，复杂度 O(n)</li>
+<li>分治，复杂度 O(logn)</li>
+</ol>
+<p>这里主要记下<strong>第三种方法</strong>：  </p>
+<p>首先我们有下面的数学公式：</p>
+<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/XS4KD$@0)~%7BSFWNKGC%60%5BK5X.png?raw=true" alt=""></p>
+<p>我们可以用数学归纳法证明如下：</p>
+<p>Step1: n=2时</p>
+<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/8%5BG%5DF@1Y%60PK5C9566YGLD8K.png?raw=true" alt="">   </p>
+<p>Step2：设n=k时，公式成立，则有：</p>
+<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/ECCX0Z_%5B9W2LIWXNQL)(%25N6.png?raw=true" alt=""></p>
+<p>等式两边同乘以[1,1;1,0]矩阵可得：</p>
+<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/N@Y7FQ7$E48LHZ%60GQQ4%6005C.png?raw=true" alt="">  </p>
+<p>左=右，这正是n=k+1时的形式，即当n=k+1时等式成立。</p>
+<p>由Step1和Step2可知，该数学公式成立。</p>
+<p>由此可以知道该问题转化为计算右边矩阵的n-1幂问题。</p>
+<p>我们利用分治的算法思想可以考虑如下求解一个数A的幂。</p>
+<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/%7DZ%6046FW)E(%7BGU%5D6P$UQ3%5BPO.png?raw=true" alt=""></p>
+<p>实现这种算法需要定义矩阵，以及矩阵的有关运算</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
+<ul>
+<li>struct 和 class 除了 struct 默认成员是 public，class 默认成员是 private 之外没有其他区别。</li>
+<li>如果一个类，你没有定义构造函数，那么系统默认会有一个无参的构造函数，但如果你定义了一个有参的构造函数，为了保证正确性，系统不会创建无参构造函数，这时候，如果你还想允许无参构造，就必须显式的声明一个。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Matrix2by2</span> &#123;</span></span><br><span class="line">    	<span class="keyword">int</span> m00,m01,m10,m11;</span><br><span class="line">    	Matrix2by2(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> d):m00(a),m01(b),m10(c),m11(d)&#123;&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function">Matrix2by2 <span class="title">MatrixMultiply</span><span class="params">(<span class="keyword">const</span> Matrix2by2&amp; matrix1,<span class="keyword">const</span> Matrix2by2&amp; matrix2)</span></span>&#123;</span><br><span class="line">        <span class="function">Matrix2by2 <span class="title">matrix12</span><span class="params">(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        matrix12.m00 = matrix1.m00 * matrix2.m00 + matrix1.m01 * matrix2.m10;</span><br><span class="line">        matrix12.m01 = matrix1.m00 * matrix2.m01 + matrix1.m01 * matrix2.m11;</span><br><span class="line">        matrix12.m10 = matrix1.m10 * matrix2.m00 + matrix1.m11 * matrix2.m10;</span><br><span class="line">        matrix12.m11 = matrix1.m10 * matrix2.m01 + matrix1.m11 * matrix2.m11;</span><br><span class="line">        <span class="keyword">return</span> matrix12;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">Matrix2by2 <span class="title">MatrixPower</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="function">Matrix2by2 <span class="title">matrix</span><span class="params">(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix=Matrix2by2(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix=MatrixPower(n/<span class="number">2</span>);</span><br><span class="line">            matrix=MatrixMultiply(matrix,matrix);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix=MatrixPower((n<span class="number">-1</span>)/<span class="number">2</span>);</span><br><span class="line">            matrix=MatrixMultiply(matrix,matrix);</span><br><span class="line">            matrix=MatrixMultiply(matrix,Matrix2by2(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> matrix;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">        	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        Matrix2by2 fibMatrix=MatrixPower(n<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">return</span> fibMatrix.m00;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/04/斐波那契数列/" data-id="cjat3ds3r000070wqgcykqocc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-旋转数组的最小数字" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/03/旋转数组的最小数字/" class="article-date">
@@ -101,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/03/旋转数组的最小数字/" data-id="cjaqlkw7t00001gwqa1aolfh6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/03/旋转数组的最小数字/" data-id="cjat3ds46000170wqb1ci3x8w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -148,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/02/用两个栈实现队列/" data-id="cjaqlkw7t00011gwqmivf0ofy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/02/用两个栈实现队列/" data-id="cjat3ds52000d70wqb711452l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -208,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/30/内部网关协议/" data-id="cjaqlkw8o000e1gwqg7oq25eu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/30/内部网关协议/" data-id="cjat3ds4m000970wq7x5841az" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络原理/">网络原理</a></li></ul>
@@ -256,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/29/装载问题/" data-id="cjaqlkw9k000i1gwqlej4vr7a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/29/装载问题/" data-id="cjat3ds52000h70wqzztwjoa6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -304,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/29/重建二叉树/" data-id="cjaqlkw8o000d1gwqceav1ke9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/29/重建二叉树/" data-id="cjat3ds52000f70wqkjothfy2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -362,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/从尾到头打印链表/" data-id="cjaqlkw8900041gwqiif099mu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/27/从尾到头打印链表/" data-id="cjat3ds4m000670wqvphuqucp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -411,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/替换空格/" data-id="cjaqlkw8900031gwq6mqogadc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/替换空格/" data-id="cjat3ds4m000770wq24nnjysw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -457,7 +525,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/二维数组中的查找/" data-id="cjaqlkw8900051gwqmfcjohho" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/二维数组中的查找/" data-id="cjat3ds4m000b70wqql46ks88" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -504,7 +572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/递归实现全排列/" data-id="cjaqlkw9k000g1gwq89f8sg72" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/24/递归实现全排列/" data-id="cjat3ds52000j70wqgmk8e7yc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -551,6 +619,10 @@
       <ul>
         
           <li>
+            <a href="/2017/12/04/斐波那契数列/">斐波那契数列</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/03/旋转数组的最小数字/">旋转数组的最小数字</a>
           </li>
         
@@ -564,10 +636,6 @@
         
           <li>
             <a href="/2017/11/29/装载问题/">装载问题</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/29/重建二叉树/">重建二叉树</a>
           </li>
         
       </ul>
