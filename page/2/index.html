@@ -62,6 +62,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-替换空格" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/26/替换空格/" class="article-date">
+  <time datetime="2017-11-26T10:33:18.000Z" itemprop="datePublished">2017-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/26/替换空格/">替换空格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
+<p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
+<p>因为给的 str 数组的空间大小是固定的，所以先判断将空格替换为 %20 后，str 的空间是否能装下，若不能变返回错误。在插入的时候要从后往前插入，若是从前往后插入，当遇见空格时，就要向后移动两次，导致移动次数过多。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
+<ul>
+<li>strlen 函数返回的是字符串长度，sizeof 运算符返回的是类型(变量)的长度。</li>
+<li>当适用一静态地空间数组， sizeof 归还全部数组的尺寸，不能返回动态地被分配了的数组或外部数组大小。</li>
+<li>数组做sizeof的参数不退化，传递给strlen就退化为指针了。 </li>
+<li>sizeof可以用类型做参数，strlen只能用char*做参数，且必须是以’’\0’’结尾的。sizeof还可以用函数做参数，非类型参数可以不加括弧。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">replaceSpace</span><span class="params">(<span class="keyword">char</span> *str,<span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(str==<span class="literal">NULL</span>||length&lt;=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> lnum=<span class="number">0</span>,i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; str[i]!=<span class="string">'\0'</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(str[i]==<span class="string">' '</span>)</span><br><span class="line">                lnum++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> newlen=lnum*<span class="number">2</span>+i;</span><br><span class="line">        <span class="keyword">if</span>(newlen&gt;length)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(str[i]==<span class="string">' '</span>)&#123;</span><br><span class="line">                str[newlen--]=<span class="string">'0'</span>;</span><br><span class="line">                str[newlen--]=<span class="string">'2'</span>;</span><br><span class="line">                str[newlen--]=<span class="string">'%'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                str[newlen--]=str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/26/替换空格/" data-id="cjawhkcm0000aq8wq29gt8gwk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-二维数组中的查找" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/25/二维数组中的查找/" class="article-date">
@@ -96,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/二维数组中的查找/" data-id="cjawfzbfi0003aowqo7kse39w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/二维数组中的查找/" data-id="cjawhkckp0000q8wqmoilbrhs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -143,7 +192,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/递归实现全排列/" data-id="cjawfzbgd000naowq0d3uasm0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/24/递归实现全排列/" data-id="cjawhkcmf000hq8wq3wu5b1cy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -194,6 +243,10 @@
       <ul>
         
           <li>
+            <a href="/2017/12/07/矩阵覆盖/">矩阵覆盖</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/06/变态跳台阶/">变态跳台阶</a>
           </li>
         
@@ -207,10 +260,6 @@
         
           <li>
             <a href="/2017/12/03/旋转数组的最小数字/">旋转数组的最小数字</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/02/用两个栈实现队列/">用两个栈实现队列</a>
           </li>
         
       </ul>

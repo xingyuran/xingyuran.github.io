@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>变态跳台阶 | XingYuran&#39; Blog</title>
+  <title>矩阵覆盖 | XingYuran&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。   思路 f(1) = 1f(2) = f(2-1) + f(2-2)         //f(2-2) 表示2阶一次跳2阶的次数。f(3) = f(3-1) + f(3-2) + f(3-3)…f">
+  <meta name="description" content="题目描述 我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？   思路 斐波那契换了点儿花样。因为可以横着放或竖着放，所以f(n)可以是2(n-1)的矩形加一个竖着放的21的矩形或2*(n-2)的矩形加2横着放的，即f(n)=f(n-1)+f(n">
 <meta name="keywords" content="剑指Offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变态跳台阶">
-<meta property="og:url" content="http://yoursite.com/2017/12/06/变态跳台阶/index.html">
+<meta property="og:title" content="矩阵覆盖">
+<meta property="og:url" content="http://yoursite.com/2017/12/07/矩阵覆盖/index.html">
 <meta property="og:site_name" content="XingYuran&#39; Blog">
-<meta property="og:description" content="题目描述 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。   思路 f(1) = 1f(2) = f(2-1) + f(2-2)         //f(2-2) 表示2阶一次跳2阶的次数。f(3) = f(3-1) + f(3-2) + f(3-3)…f(n) = f(n-1) + f(n-2) + f(n-3) + … + f(n">
+<meta property="og:description" content="题目描述 我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？   思路 斐波那契换了点儿花样。因为可以横着放或竖着放，所以f(n)可以是2(n-1)的矩形加一个竖着放的21的矩形或2*(n-2)的矩形加2横着放的，即f(n)=f(n-1)+f(n-2) 知识点  注意边界条件  代码12345678910class Solu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-12-07T12:47:02.863Z">
+<meta property="og:updated_time" content="2017-12-07T12:53:12.152Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="变态跳台阶">
-<meta name="twitter:description" content="题目描述 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。   思路 f(1) = 1f(2) = f(2-1) + f(2-2)         //f(2-2) 表示2阶一次跳2阶的次数。f(3) = f(3-1) + f(3-2) + f(3-3)…f(n) = f(n-1) + f(n-2) + f(n-3) + … + f(n">
+<meta name="twitter:title" content="矩阵覆盖">
+<meta name="twitter:description" content="题目描述 我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？   思路 斐波那契换了点儿花样。因为可以横着放或竖着放，所以f(n)可以是2(n-1)的矩形加一个竖着放的21的矩形或2*(n-2)的矩形加2横着放的，即f(n)=f(n-1)+f(n-2) 知识点  注意边界条件  代码12345678910class Solu">
   
     <link rel="alternate" href="/atom.xml" title="XingYuran&#39; Blog" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-变态跳台阶" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-矩阵覆盖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/06/变态跳台阶/" class="article-date">
-  <time datetime="2017-12-06T02:51:51.000Z" itemprop="datePublished">2017-12-06</time>
+    <a href="/2017/12/07/矩阵覆盖/" class="article-date">
+  <time datetime="2017-12-07T12:48:13.000Z" itemprop="datePublished">2017-12-07</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      变态跳台阶
+      矩阵覆盖
     </h1>
   
 
@@ -88,21 +88,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
-<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。  </p>
+<p>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？  </p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
-<p>f(1) = 1<br>f(2) = f(2-1) + f(2-2)         //f(2-2) 表示2阶一次跳2阶的次数。<br>f(3) = f(3-1) + f(3-2) + f(3-3)<br>…<br>f(n) = f(n-1) + f(n-2) + f(n-3) + … + f(n-(n-1)) + f(n-n)   </p>
-<p>得出：f(n) = 2 * f(n-1)，(n&gt;=2)  </p>
+<p>斐波那契换了点儿花样。因为可以横着放或竖着放，所以f(n)可以是2<em>(n-1)的矩形加一个竖着放的2</em>1的矩形或2*(n-2)的矩形加2横着放的，即f(n)=f(n-1)+f(n-2)</p>
 <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
 <ul>
-<li>&lt;&lt; : 左移运算符，num &lt;&lt; 1，相当于 num 乘以2。  </li>
+<li>注意边界条件</li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jumpFloorII</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(number==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>*jumpFloorII(number<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>大神写的代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jumpFloorII</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span>  <span class="number">1</span>&lt;&lt;--number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rectCover</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(number&lt;=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(number==<span class="number">1</span>||number==<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> number;</span><br><span class="line">        <span class="keyword">return</span> rectCover(number<span class="number">-1</span>)+rectCover(number<span class="number">-2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/06/变态跳台阶/" data-id="cjawhkcm00008q8wqq1zd29im" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/07/矩阵覆盖/" data-id="cjawhkcmf000dq8wqvp6s7q8n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -113,19 +110,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/12/07/矩阵覆盖/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          矩阵覆盖
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/06/跳台阶/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/06/变态跳台阶/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">跳台阶</div>
+      <div class="article-nav-title">变态跳台阶</div>
     </a>
   
 </nav>
