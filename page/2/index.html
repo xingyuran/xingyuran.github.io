@@ -3,20 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>递归实现全排列 | XingYuran&#39; Blog</title>
+  <title>XingYuran&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述 递归实现全排列. 算法设计  n个元素的全排列=（n-1个元素的全排列）+（另一个元素作为前缀）；   出口：如果只有一个元素的全排列，则说明已经排完，则输出数组；   不断将每个元素放作第一个元素，然后将这个元素作为前缀，并将其余元素继续全排列，等到出口，出口出去后还需要还原数组；    代码1234567">
-<meta name="keywords" content="算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="递归实现全排列">
-<meta property="og:url" content="http://yoursite.com/2017/11/24/递归实现全排列/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="XingYuran&#39; Blog">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="XingYuran&#39; Blog">
-<meta property="og:description" content="问题描述 递归实现全排列. 算法设计  n个元素的全排列=（n-1个元素的全排列）+（另一个元素作为前缀）；   出口：如果只有一个元素的全排列，则说明已经排完，则输出数组；   不断将每个元素放作第一个元素，然后将这个元素作为前缀，并将其余元素继续全排列，等到出口，出口出去后还需要还原数组；    代码12345678910111213141516171819202122232425262728">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-11-29T11:47:01.527Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="递归实现全排列">
-<meta name="twitter:description" content="问题描述 递归实现全排列. 算法设计  n个元素的全排列=（n-1个元素的全排列）+（另一个元素作为前缀）；   出口：如果只有一个元素的全排列，则说明已经排完，则输出数组；   不断将每个元素放作第一个元素，然后将这个元素作为前缀，并将其余元素继续全排列，等到出口，出口出去后还需要还原数组；    代码12345678910111213141516171819202122232425262728">
+<meta name="twitter:title" content="XingYuran&#39; Blog">
   
     <link rel="alternate" href="/atom.xml" title="XingYuran&#39; Blog" type="application/atom+xml">
   
@@ -65,7 +60,55 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-递归实现全排列" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-二维数组中的查找" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/25/二维数组中的查找/" class="article-date">
+  <time datetime="2017-11-25T05:45:13.577Z" itemprop="datePublished">2017-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/25/二维数组中的查找/">二维数组中的查找</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
+<p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
+<p>因为数组是有序的，所以为了减少查找次数，从数组的左下方也就是array[row-1][0]开始找，若是target比该数大，就找该列的上一行，若是target比该数小就找该行的下一列。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
+<ul>
+<li>continue用于结束本次循环，break用于结束整个循环。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> row=<span class="built_in">array</span>.size();</span><br><span class="line">        <span class="keyword">int</span> col=<span class="built_in">array</span>[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> i,j;</span><br><span class="line">        <span class="keyword">for</span>(i=row<span class="number">-1</span>,j=<span class="number">0</span>;i&gt;=<span class="number">0</span>&amp;&amp;j&lt;col;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(target == <span class="built_in">array</span>[i][j])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(target &lt; <span class="built_in">array</span>[i][j])</span><br><span class="line">            &#123;</span><br><span class="line">                i--;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                j++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/25/二维数组中的查找/" data-id="cjawfzbfi0003aowqo7kse39w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-递归实现全排列" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/24/递归实现全排列/" class="article-date">
   <time datetime="2017-11-24T08:21:45.992Z" itemprop="datePublished">2017-11-24</time>
@@ -78,8 +121,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      递归实现全排列
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/24/递归实现全排列/">递归实现全排列</a>
     </h1>
   
 
@@ -108,24 +151,15 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2017/11/25/二维数组中的查找/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          二维数组中的查找
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
 </article>
 
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 </section>
         
           <aside id="sidebar">
