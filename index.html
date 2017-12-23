@@ -62,6 +62,137 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-二叉树的镜像" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/23/二叉树的镜像/" class="article-date">
+  <time datetime="2017-12-23T03:01:10.000Z" itemprop="datePublished">2017-12-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/23/二叉树的镜像/">二叉树的镜像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。  </p>
+<h5 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h5><p>二叉树的镜像定义：</p>
+<p><img src="http://images2015.cnblogs.com/blog/826280/201607/826280-20160724164914826-991264959.jpg" alt=""></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
+<p>整体翻转，定义中间变量传递左右孩子。void 类型函数不能有返回值，NULL 也不行。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct TreeNode *left;</span></span><br><span class="line"><span class="comment">	struct TreeNode *right;</span></span><br><span class="line"><span class="comment">	TreeNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Mirror</span><span class="params">(TreeNode *root)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(root)&#123;</span><br><span class="line">            TreeNode* t;</span><br><span class="line">            t=root-&gt;left;</span><br><span class="line">            root-&gt;left=root-&gt;right;</span><br><span class="line">            root-&gt;right=t;</span><br><span class="line">            Mirror(root-&gt;left);</span><br><span class="line">            Mirror(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/23/二叉树的镜像/" data-id="cjbirq5960001fwwqm72mmjup" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-二叉树的子结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/23/二叉树的子结构/" class="article-date">
+  <time datetime="2017-12-23T01:56:35.000Z" itemprop="datePublished">2017-12-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/23/二叉树的子结构/">二叉树的子结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
+<p>输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
+<p><strong>二叉树的子结构</strong>：包含了一个结点，可以只取左子树或者右子树，或者都不取。</p>
+<p><img src="http://img.blog.csdn.net/20150617111657146" alt=""></p>
+<p><strong>二叉树的子树</strong>：包含了一个结点，就得包含这个结点下的所有节点。<br><strong>逻辑运算的短路特性</strong>：<br>(表达式1）&amp;&amp;(表达式2) 如果表达式1为假，则表达式2不会进行运算，即表达式2“被短路”<br>(表达式1）||(表达式2) 如果表达式1为真，则表达式2不会进行运算，即表达式2“被短路”</p>
+<p>先判断根节点是否相等，若相等再判断两者的左孩子，右孩子；若根节点不相等，则将A的左孩子和B比较，再不等，将A的右孩子和B比较。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct TreeNode *left;</span></span><br><span class="line"><span class="comment">	struct TreeNode *right;</span></span><br><span class="line"><span class="comment">	TreeNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">HasSubtree</span><span class="params">(TreeNode* root1, TreeNode* root2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> j=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span>(root1!=<span class="literal">NULL</span>&amp;&amp;root2!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root1-&gt;val==root2-&gt;val)</span><br><span class="line">            	j=cmp(root1,root2);</span><br><span class="line">            <span class="keyword">if</span>(!j)</span><br><span class="line">                j=cmp(root1-&gt;left,root2);</span><br><span class="line">            <span class="keyword">if</span>(!j)</span><br><span class="line">                j=cmp(root1-&gt;right,root2);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(TreeNode* root1,TreeNode* root2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">		<span class="comment">//注意！root2的判断一定要在root1之前</span></span><br><span class="line">        <span class="keyword">if</span>(root2==<span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(root1==<span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(root1-&gt;val!=root2-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> cmp(root1-&gt;left,root2-&gt;left)&amp;&amp;cmp(root1-&gt;right,root2-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/23/二叉树的子结构/" data-id="cjbirq5960000fwwq4tan21b0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-合并两个排序的链表" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/23/合并两个排序的链表/" class="article-date">
+  <time datetime="2017-12-23T01:47:09.000Z" itemprop="datePublished">2017-12-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/23/合并两个排序的链表/">合并两个排序的链表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
+<p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
+<p>分两种情况① val1 &lt;= val2 ② val1 &gt; val2，两种情况都是使一个指针指向当前较小的值，然后原较小值得 head 指针向后找下一个，直到一个链表为空结束。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct ListNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct ListNode *next;</span></span><br><span class="line"><span class="comment">	ListNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), next(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">Merge</span><span class="params">(ListNode* head1, ListNode* head2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head1==<span class="literal">NULL</span>)<span class="keyword">return</span> head2;</span><br><span class="line">        <span class="keyword">if</span>(head2==<span class="literal">NULL</span>)<span class="keyword">return</span> head1;</span><br><span class="line">        ListNode *p,*q;</span><br><span class="line">        p=q=<span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">while</span>(head1!=<span class="literal">NULL</span>&amp;&amp;head2!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(head1-&gt;val&lt;=head2-&gt;val)&#123;</span><br><span class="line">                <span class="keyword">if</span>(p==<span class="literal">NULL</span>)</span><br><span class="line">                    p=q=head1;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    q-&gt;next=head1;</span><br><span class="line">                    q=q-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                head1=head1-&gt;next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(p==<span class="literal">NULL</span>)</span><br><span class="line">                    p=q=head2;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    q-&gt;next=head2;</span><br><span class="line">                    q=q-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                head2=head2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(head1==<span class="literal">NULL</span>)</span><br><span class="line">            q-&gt;next=head2;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            q-&gt;next=head1;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/23/合并两个排序的链表/" data-id="cjbirq5a10005fwwq32qkmkcp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-反转链表输出" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/13/反转链表输出/" class="article-date">
@@ -88,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/13/反转链表输出/" data-id="cjbhbnvpn0006gswq28unv287" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/13/反转链表输出/" data-id="cjbirq59l0003fwwqyy4m16ia" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/13/链表中倒数第k个节点/" data-id="cjbhbnvs9000vgswqwvnwbpg4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/13/链表中倒数第k个节点/" data-id="cjbirq5bs000zfwwqtc11liyl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -172,9 +303,8 @@
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
 <ul>
 <li>从前向后找偶数，找到后从当前位置向后找奇数，将奇数记在 temp，将偶数到奇数这段元素整体向后移一格，temp 赋给原偶数位置。</li>
-<li>不能将记偶数位置，记偶数位置相当于将后边的奇数向前压，若是出现相邻的偶数排列会出错，应选择将偶数向后压。</li>
+<li>不能将记偶数位置，记偶数位置相当于将后边的奇数向前压，若是出现相邻的偶数排列会出错，应选择将偶数向后压。  </li>
 </ul>
-<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/IMG_20171210_190010.jpg?raw=true" alt="">  </p>
 <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
 <ul>
 <li>（考点）代码的完整性</li>
@@ -184,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/调整数组顺序使奇数位于偶数前面/" data-id="cjbhbnvqy000mgswqmbkc8ne2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/调整数组顺序使奇数位于偶数前面/" data-id="cjbirq5ah000cfwwqnnzpxoiv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -231,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/数值的整数次方/" data-id="cjbhbnvq30008gswqod2v7bbo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/09/数值的整数次方/" data-id="cjbirq5bc000sfwwql3t3i3a5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -274,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/08/二进制中1的个数/" data-id="cjbhbnvq3000agswqxfr3ti3k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/08/二进制中1的个数/" data-id="cjbirq5aw000gfwwqiep9ml6t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -320,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/07/矩阵覆盖/" data-id="cjbhbnvqy000ogswqotzy72lg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/07/矩阵覆盖/" data-id="cjbirq5aw000kfwwqj78dnoq8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -369,170 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/06/变态跳台阶/" data-id="cjbhbnvpn0007gswqq33fxzxy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-跳台阶" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/06/跳台阶/" class="article-date">
-  <time datetime="2017-12-06T02:21:47.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/跳台阶/">跳台阶</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
-<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。  </p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
-<p>找规律可以总结出是斐波那契数列 f(n) = f(n-1) + f(n-2)，假设现在6个台阶，我们可以从第5跳一步到6，这样的话有多少种方案跳到5就有多少种方案跳到6，另外我们也可以从4跳两步跳到6，跳到4有多少种方案的话，就有多少种方案跳到6，其他的不能从3跳到6，所以最后就是f(6) = f(5) + f(4)。  </p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
-<p>不知道规律的时候可以将前集中结果写出来看看。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jumpFloor</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(number&lt;=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(number==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(number==<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">2</span>,c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=number;i++)&#123;</span><br><span class="line">            c=a+b;</span><br><span class="line">            a=b;</span><br><span class="line">            b=c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/06/跳台阶/" data-id="cjbhbnvre000sgswq9gmpmjsn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-斐波那契数列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/04/斐波那契数列/" class="article-date">
-  <time datetime="2017-12-04T12:17:39.000Z" itemprop="datePublished">2017-12-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/04/斐波那契数列/">斐波那契数列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><hr>
-<p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。n&lt;=39  </p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
-<ol>
-<li>递归，复杂度 O(2<sup>n</sup>)</li>
-<li>迭代，复杂度 O(n)</li>
-<li>分治，复杂度 O(logn)</li>
-</ol>
-<p>这里主要记下<strong>第三种方法</strong>：  </p>
-<p>首先我们有下面的数学公式：</p>
-<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/XS4KD$@0)~%7BSFWNKGC%60%5BK5X.png?raw=true" alt=""></p>
-<p>我们可以用数学归纳法证明如下：</p>
-<p>Step1: n=2时</p>
-<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/8%5BG%5DF@1Y%60PK5C9566YGLD8K.png?raw=true" alt="">   </p>
-<p>Step2：设n=k时，公式成立，则有：</p>
-<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/ECCX0Z_%5B9W2LIWXNQL)(%25N6.png?raw=true" alt=""></p>
-<p>等式两边同乘以[1,1;1,0]矩阵可得：</p>
-<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/N@Y7FQ7$E48LHZ%60GQQ4%6005C.png?raw=true" alt="">  </p>
-<p>左=右，这正是n=k+1时的形式，即当n=k+1时等式成立。</p>
-<p>由Step1和Step2可知，该数学公式成立。</p>
-<p>由此可以知道该问题转化为计算右边矩阵的n-1幂问题。</p>
-<p>我们利用分治的算法思想可以考虑如下求解一个数A的幂。</p>
-<p><img src="https://github.com/xingyuran/Blacksheep/blob/master/%7DZ%6046FW)E(%7BGU%5D6P$UQ3%5BPO.png?raw=true" alt=""></p>
-<p>实现这种算法需要定义矩阵，以及矩阵的有关运算</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
-<ul>
-<li>struct 和 class 除了 struct 默认成员是 public，class 默认成员是 private 之外没有其他区别。</li>
-<li>如果一个类，你没有定义构造函数，那么系统默认会有一个无参的构造函数，但如果你定义了一个有参的构造函数，为了保证正确性，系统不会创建无参构造函数，这时候，如果你还想允许无参构造，就必须显式的声明一个。</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Matrix2by2</span> &#123;</span></span><br><span class="line">    	<span class="keyword">int</span> m00,m01,m10,m11;</span><br><span class="line">    	Matrix2by2(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> d):m00(a),m01(b),m10(c),m11(d)&#123;&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function">Matrix2by2 <span class="title">MatrixMultiply</span><span class="params">(<span class="keyword">const</span> Matrix2by2&amp; matrix1,<span class="keyword">const</span> Matrix2by2&amp; matrix2)</span></span>&#123;</span><br><span class="line">        <span class="function">Matrix2by2 <span class="title">matrix12</span><span class="params">(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        matrix12.m00 = matrix1.m00 * matrix2.m00 + matrix1.m01 * matrix2.m10;</span><br><span class="line">        matrix12.m01 = matrix1.m00 * matrix2.m01 + matrix1.m01 * matrix2.m11;</span><br><span class="line">        matrix12.m10 = matrix1.m10 * matrix2.m00 + matrix1.m11 * matrix2.m10;</span><br><span class="line">        matrix12.m11 = matrix1.m10 * matrix2.m01 + matrix1.m11 * matrix2.m11;</span><br><span class="line">        <span class="keyword">return</span> matrix12;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">Matrix2by2 <span class="title">MatrixPower</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="function">Matrix2by2 <span class="title">matrix</span><span class="params">(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix=Matrix2by2(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix=MatrixPower(n/<span class="number">2</span>);</span><br><span class="line">            matrix=MatrixMultiply(matrix,matrix);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix=MatrixPower((n<span class="number">-1</span>)/<span class="number">2</span>);</span><br><span class="line">            matrix=MatrixMultiply(matrix,matrix);</span><br><span class="line">            matrix=MatrixMultiply(matrix,Matrix2by2(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> matrix;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">        	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        Matrix2by2 fibMatrix=MatrixPower(n<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">return</span> fibMatrix.m00;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/04/斐波那契数列/" data-id="cjbhbnvqy000kgswqak6ax18p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-旋转数组的最小数字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/03/旋转数组的最小数字/" class="article-date">
-  <time datetime="2017-12-03T06:54:41.000Z" itemprop="datePublished">2017-12-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/03/旋转数组的最小数字/">旋转数组的最小数字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><hr>
-<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。  </p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><hr>
-<p>有三种情况  </p>
-<ol>
-<li>rotateArray [mid] &gt; rotateArray [begin]<br>最小的数肯定在rotateArray [mid] 的右边。  </li>
-<li>rotateArray [mid] &lt; rotateArray [begin]<br>最小的数肯定在rotateArray [mid] 的左边。  </li>
-<li>rotateArray [mid] == rotateArray [begin]<br>这种情况不好判断，如 [1,0,1,1,1]，[1,1,1,0,1]，只有 begin++ 挨个判断  </li>
-</ol>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><hr>
-<ul>
-<li>STL 中容器是否为空的判断条件 <strong>v.empty()</strong> 和 <strong>v.size()==0</strong> 的区别：对于std::vector来说，其实效率没区别，但是对于std::list来说(gcc 4.6-)，empty()的效率是O(1)，size()的效率是O(n)。<br>C++11对size()的效率做了一致性的规定。所以在gcc 4.7+, std::list的复杂度也是O(1)了。原因是增加了一个“size”的变量来存长度。</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minNumberInRotateArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; rotateArray)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(rotateArray.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end=rotateArray.size()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> begin=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=(begin+end)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span>(begin!=mid)&#123;</span><br><span class="line">        	<span class="keyword">if</span>(rotateArray[mid]&gt;rotateArray[begin])&#123;</span><br><span class="line">                begin=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(rotateArray[mid]&lt;rotateArray[begin])&#123;</span><br><span class="line">                end=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                begin++;</span><br><span class="line">            &#125;</span><br><span class="line">            mid=(begin+end)/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rotateArray[begin+<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/03/旋转数组的最小数字/" data-id="cjbhbnvqj000ggswqvrvmkaga" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/06/变态跳台阶/" data-id="cjbirq5ah000efwwq1398b0wm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -583,23 +550,23 @@
       <ul>
         
           <li>
+            <a href="/2017/12/23/二叉树的镜像/">二叉树的镜像</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/23/二叉树的子结构/">二叉树的子结构</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/23/合并两个排序的链表/">合并两个排序的链表</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/13/反转链表输出/">反转链表输出</a>
           </li>
         
           <li>
             <a href="/2017/12/13/链表中倒数第k个节点/">链表中倒数第k个节点</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/10/调整数组顺序使奇数位于偶数前面/">调整数组顺序使奇数位于偶数前面</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/09/数值的整数次方/">数值的整数次方</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/08/二进制中1的个数/">二进制中1的个数</a>
           </li>
         
       </ul>
