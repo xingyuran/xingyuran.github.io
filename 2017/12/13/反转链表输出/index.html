@@ -5,14 +5,18 @@
   
   <title>反转链表输出 | XingYuran&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="题目描述输入一个链表，反转链表后，输出链表的所有元素。 代码：1234567891011121314151617181920212223242526/*struct ListNode &amp;#123;	int val;	struct ListNode *next;	ListNode(int x) :			val(x">
+<meta name="keywords" content="剑指Offer">
+<meta property="og:type" content="article">
 <meta property="og:title" content="反转链表输出">
 <meta property="og:url" content="http://yoursite.com/2017/12/13/反转链表输出/index.html">
 <meta property="og:site_name" content="XingYuran&#39; Blog">
+<meta property="og:description" content="题目描述输入一个链表，反转链表后，输出链表的所有元素。 代码：1234567891011121314151617181920212223242526/*struct ListNode &amp;#123;	int val;	struct ListNode *next;	ListNode(int x) :			val(x), next(NULL) &amp;#123;	&amp;#125;&amp;#125;;*/class So">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-12-13T06:39:56.429Z">
+<meta property="og:updated_time" content="2018-04-18T12:30:00.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="反转链表输出">
+<meta name="twitter:description" content="题目描述输入一个链表，反转链表后，输出链表的所有元素。 代码：1234567891011121314151617181920212223242526/*struct ListNode &amp;#123;	int val;	struct ListNode *next;	ListNode(int x) :			val(x), next(NULL) &amp;#123;	&amp;#125;&amp;#125;;*/class So">
   
     <link rel="alternate" href="/atom.xml" title="XingYuran&#39; Blog" type="application/atom+xml">
   
@@ -83,13 +87,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个链表，反转链表后，输出链表的所有元素。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">struct ListNode &#123;</span><br><span class="line">	int val;</span><br><span class="line">	struct ListNode *next;</span><br><span class="line">	ListNode(int x) :</span><br><span class="line">			val(x), next(NULL) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* ReverseList(ListNode* head) &#123;</span><br><span class="line">		if(head==NULL)</span><br><span class="line">            return NULL;</span><br><span class="line">        ListNode *p,*q,*t;</span><br><span class="line">        p=NULL;</span><br><span class="line">        q=head;</span><br><span class="line">        t=head-&gt;next;</span><br><span class="line">        while(q!=NULL)&#123;</span><br><span class="line">            q-&gt;next=p;</span><br><span class="line">            p=q;</span><br><span class="line">            q=t;</span><br><span class="line">            t=t-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/13/反转链表输出/" data-id="cjcx425ew000adwwqutqsro0p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/13/反转链表输出/" data-id="cjg52uozo00096kwqch2hcjva" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
     </footer>
   </div>
   
@@ -127,7 +134,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥/">蓝桥</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT/">PAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥/">蓝桥</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +144,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
   </div>
 
@@ -150,23 +157,23 @@
       <ul>
         
           <li>
-            <a href="/2018/01/27/特殊回文数/">特殊回文数</a>
+            <a href="/2018/04/18/从上往下打印二叉树/">从上往下打印二叉树</a>
           </li>
         
           <li>
-            <a href="/2018/01/27/数列排序/">数列排序</a>
+            <a href="/2018/04/18/栈的压入弹出序列/">栈的压入弹出序列</a>
           </li>
         
           <li>
-            <a href="/2018/01/27/序列求和/">序列求和</a>
+            <a href="/2018/03/31/九数分三组/">九数分三组</a>
           </li>
         
           <li>
-            <a href="/2018/01/27/圆的面积/">圆的面积</a>
+            <a href="/2018/03/24/字母组串/">字母组串</a>
           </li>
         
           <li>
-            <a href="/2018/01/27/斐波那契数列余数/">斐波那契数列</a>
+            <a href="/2018/03/24/海盗比酒量/">海盗比酒量</a>
           </li>
         
       </ul>
