@@ -62,6 +62,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-二叉树中和为某一值的路径" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/19/二叉树中和为某一值的路径/" class="article-date">
+  <time datetime="2018-04-19T13:20:23.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/19/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><p>vector\<vector\<\>> 类型中，写入时不能当成二维数组直接写入，需要用 for 循环写入</vector\<\></p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">struct TreeNode &#123;</span><br><span class="line">	int val;</span><br><span class="line">	struct TreeNode *left;</span><br><span class="line">	struct TreeNode *right;</span><br><span class="line">	TreeNode(int x) :</span><br><span class="line">			val(x), left(NULL), right(NULL) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">    </span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; ans;</span><br><span class="line">    vector&lt;int&gt; tag;</span><br><span class="line">    vector&lt;vector&lt;int&gt; &gt; FindPath(TreeNode* root,int expectNumber) &#123;</span><br><span class="line">        if(root==NULL)</span><br><span class="line">            return ans;</span><br><span class="line">        expectNumber-=root-&gt;val;</span><br><span class="line">        tag.push_back(root-&gt;val);</span><br><span class="line">        FindPath(root-&gt;left,expectNumber);</span><br><span class="line">        FindPath(root-&gt;right,expectNumber);</span><br><span class="line">        if(0==expectNumber&amp;&amp;root-&gt;left==NULL&amp;&amp;root-&gt;right==NULL)</span><br><span class="line">            ans.push_back(tag);</span><br><span class="line">        tag.pop_back();</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/19/二叉树中和为某一值的路径/" data-id="cjg6kklg90003ygwqzsabjpdd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-二叉搜索树的后序遍历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/19/二叉搜索树的后序遍历/" class="article-date">
+  <time datetime="2018-04-19T11:58:58.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/19/二叉搜索树的后序遍历/">二叉搜索树的后序遍历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><p>二叉搜索树是左孩子比根节点小且右孩子比根节点大的二叉树，后序遍历特点是最后一个数 last 是根节点，last 之前的值有这样一个特点，前面一部分连续值都比 last 小，剩下的都比 last 大。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool VerifySquenceOfBST(vector&lt;int&gt; sequence) &#123;</span><br><span class="line">        if(sequence.empty())</span><br><span class="line">            return false;</span><br><span class="line">        while(!sequence.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            vector&lt;int&gt;::iterator iter=sequence.begin();</span><br><span class="line">            int tail=sequence.back();</span><br><span class="line">            while(*iter&lt;tail)</span><br><span class="line">                iter++;</span><br><span class="line">            while(*iter&gt;tail)</span><br><span class="line">                iter++;</span><br><span class="line">            if(iter!=sequence.end()-1)</span><br><span class="line">                break;</span><br><span class="line">            sequence.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">        if(sequence.empty())</span><br><span class="line">            return true;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/19/二叉搜索树的后序遍历/" data-id="cjg6kklg90004ygwqyhzbj7r8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-从上往下打印二叉树" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/18/从上往下打印二叉树/" class="article-date">
@@ -89,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/18/从上往下打印二叉树/" data-id="cjg52w41d0009k4wqrw8eotk0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/18/从上往下打印二叉树/" data-id="cjg6kklhk000hygwqgq2tylqj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -128,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/18/栈的压入弹出序列/" data-id="cjg52w44l001sk4wqx6z3lki9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/18/栈的压入弹出序列/" data-id="cjg6kkllv0021ygwqexjnah5a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
@@ -169,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/31/九数分三组/" data-id="cjg52w40v0003k4wqpqaho2z5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/31/九数分三组/" data-id="cjg6kklgo0008ygwqhozz0egj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥/">蓝桥</a></li></ul>
@@ -214,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/字母组串/" data-id="cjg52w42u000wk4wqy4uvt4lh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/24/字母组串/" data-id="cjg6kkljk000zygwqxkwui8hn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥/">蓝桥</a></li></ul>
@@ -264,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/海盗比酒量/" data-id="cjg52w44j001qk4wq6c9hncug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/24/海盗比酒量/" data-id="cjg6kkllq001xygwqp6n6dncp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥/">蓝桥</a></li></ul>
@@ -311,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/随意组合/" data-id="cjg52w45y002ak4wqvm4roj2r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/24/随意组合/" data-id="cjg6kkln5002fygwqea1rk7yp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥/">蓝桥</a></li></ul>
@@ -354,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/19/Oil-Deposits/" data-id="cjg52w40h0001k4wqjsx73yyh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/19/Oil-Deposits/" data-id="cjg6kklft0000ygwqsmx76dvb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
@@ -399,104 +479,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/13/畅通工程/" data-id="cjg52w4520020k4wqjqjpxt36" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/13/畅通工程/" data-id="cjg6kklly0023ygwqb4v6p1ln" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hava-fun-with-numbers" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/12/hava-fun-with-numbers/" class="article-date">
-  <time datetime="2018-03-12T11:38:02.000Z" itemprop="datePublished">2018-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/12/hava-fun-with-numbers/">hava fun with numbers</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1023.Have Fun with Numbers (20)<br>时间限制<br>400 ms<br>内存限制<br>65536 kB<br>代码长度限制<br>16000 B<br>判题程序<br>Standard<br>作者<br>CHEN, Yue  </p>
-<p>Notice that the number 123456789 is a 9-digit number consisting exactly the numbers from 1 to 9, with no duplication. Double it we will obtain 246913578, which happens to be another 9-digit number consisting exactly the numbers from 1 to 9, only in a different permutation. Check to see the result if we double it again!</p>
-<p>Now you are suppose to check if there are more numbers with this property. That is, double a given number with k digits, you are to tell if the resulting number consists of only a permutation of the digits in the original number.</p>
-<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case. Each case contains one positive integer with no more than 20 digits.</p>
-<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each test case, first print in a line “Yes” if doubling the input number gives a number that consists of only a permutation of the digits in the original number, or “No” if not. Then in the next line, print the doubled number.</p>
-<h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h5><p>1234567899  </p>
-<h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h5><p>Yes<br>2469135798  </p>
-<p>代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;memory.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag[<span class="number">10</span>]=&#123;<span class="number">0</span>&#125;,test[<span class="number">10</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> num_char[<span class="number">21</span>];</span><br><span class="line">    <span class="keyword">int</span> num_int[<span class="number">21</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,num_char);</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(num_char);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        num_int[i]=num_char[i]-<span class="string">'0'</span>;</span><br><span class="line">        flag[num_int[i]]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> vi=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=len<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        num_int[i]=num_int[i]*<span class="number">2</span>+vi;</span><br><span class="line">        <span class="keyword">if</span>(num_int[i]&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">            num_int[i]%=<span class="number">10</span>;</span><br><span class="line">            vi=<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            vi=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(vi==<span class="number">1</span>)</span><br><span class="line">        test[<span class="number">1</span>]++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">        test[num_int[i]]++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(flag[i]!=test[i])&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"no"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"yes\n"</span>);</span><br><span class="line">    <span class="keyword">if</span>(vi==<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"1"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,num_int[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/12/hava-fun-with-numbers/" data-id="cjg52w41n000bk4wqdaouj9gi" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-打印十字图" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/03/打印十字图/" class="article-date">
-  <time datetime="2018-03-03T05:22:09.000Z" itemprop="datePublished">2018-03-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/打印十字图/">打印十字图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>小明为某机构设计了一个十字型的徽标（并非红十字会啊），如下所示：    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">..$$$$$$$$$$$$$..  </span><br><span class="line">..$...........$..   </span><br><span class="line">$$$.$$$$$$$$$.$$$  </span><br><span class="line">$...$.......$...$  </span><br><span class="line">$.$$$.$$$$$.$$$.$  </span><br><span class="line">$.$...$...$...$.$  </span><br><span class="line">$.$.$$$.$.$$$.$.$  </span><br><span class="line">$.$.$...$...$.$.$  </span><br><span class="line">$.$.$.$$$$$.$.$.$  </span><br><span class="line">$.$.$...$...$.$.$  </span><br><span class="line">$.$.$$$.$.$$$.$.$  </span><br><span class="line">$.$...$...$...$.$  </span><br><span class="line">$.$$$.$$$$$.$$$.$  </span><br><span class="line">$...$.......$...$  </span><br><span class="line">$$$.$$$$$$$$$.$$$  </span><br><span class="line">..$...........$..  </span><br><span class="line">..$$$$$$$$$$$$$..</span><br></pre></td></tr></table></figure>
-<p>对方同时也需要在电脑dos窗口中以字符的形式输出该标志，并能任意控制层数。</p>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>一个正整数 n (n&lt;30) 表示要求打印图形的层数。</p>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对应包围层数的该标志。</p>
-<h5 id="样例输入1"><a href="#样例输入1" class="headerlink" title="样例输入1"></a>样例输入1</h5><p>1</p>
-<h5 id="样例输出1"><a href="#样例输出1" class="headerlink" title="样例输出1"></a>样例输出1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">..$$$$$..</span><br><span class="line">..$...$..</span><br><span class="line">$$$.$.$$$</span><br><span class="line">$...$...$</span><br><span class="line">$.$$$$$.$</span><br><span class="line">$...$...$</span><br><span class="line">$$$.$.$$$</span><br><span class="line">..$...$..</span><br><span class="line">..$$$$$..</span><br></pre></td></tr></table></figure>
-<h5 id="样例输入2"><a href="#样例输入2" class="headerlink" title="样例输入2"></a>样例输入2</h5><p>3</p>
-<h5 id="样例输出2"><a href="#样例输出2" class="headerlink" title="样例输出2"></a>样例输出2</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">..$$$$$$$$$$$$$..</span><br><span class="line">..$...........$..</span><br><span class="line">$$$.$$$$$$$$$.$$$</span><br><span class="line">$...$.......$...$</span><br><span class="line">$.$$$.$$$$$.$$$.$</span><br><span class="line">$.$...$...$...$.$</span><br><span class="line">$.$.$$$.$.$$$.$.$</span><br><span class="line">$.$.$...$...$.$.$</span><br><span class="line">$.$.$.$$$$$.$.$.$</span><br><span class="line">$.$.$...$...$.$.$</span><br><span class="line">$.$.$$$.$.$$$.$.$</span><br><span class="line">$.$...$...$...$.$</span><br><span class="line">$.$$$.$$$$$.$$$.$</span><br><span class="line">$...$.......$...$</span><br><span class="line">$$$.$$$$$$$$$.$$$</span><br><span class="line">..$...........$..</span><br><span class="line">..$$$$$$$$$$$$$..</span><br></pre></td></tr></table></figure>
-<h5 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h5><p>请仔细观察样例，尤其要注意句点的数量和输出位置。</p>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//上下左右斜对称，只需要观察一个三角形就可以</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;memory.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">go</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&gt;<span class="number">2</span>*n+<span class="number">3</span>)</span><br><span class="line">        i=n*<span class="number">4</span>+<span class="number">6</span>-i;</span><br><span class="line">    <span class="keyword">if</span>(j&gt;<span class="number">2</span>*n+<span class="number">3</span>)</span><br><span class="line">        j=n*<span class="number">4</span>+<span class="number">6</span>-j;</span><br><span class="line">    <span class="keyword">if</span>(j&gt;i)&#123;</span><br><span class="line">        <span class="keyword">int</span> t=i;</span><br><span class="line">        i=j;</span><br><span class="line">        j=t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;=<span class="number">2</span>&amp;&amp;j&lt;=<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">1</span>&amp;&amp;j&gt;=i<span class="number">-2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(j%<span class="number">2</span>==<span class="number">1</span>&amp;&amp;j!=i<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n*<span class="number">4</span>+<span class="number">5</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n*<span class="number">4</span>+<span class="number">5</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(go(i,j,n))</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"$"</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"."</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/03/打印十字图/" data-id="cjg52w4300011k4wqj673yqi6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥/">蓝桥</a></li></ul>
 
     </footer>
   </div>
@@ -544,6 +530,14 @@
       <ul>
         
           <li>
+            <a href="/2018/04/19/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/19/二叉搜索树的后序遍历/">二叉搜索树的后序遍历</a>
+          </li>
+        
+          <li>
             <a href="/2018/04/18/从上往下打印二叉树/">从上往下打印二叉树</a>
           </li>
         
@@ -553,14 +547,6 @@
         
           <li>
             <a href="/2018/03/31/九数分三组/">九数分三组</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/24/字母组串/">字母组串</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/24/海盗比酒量/">海盗比酒量</a>
           </li>
         
       </ul>
